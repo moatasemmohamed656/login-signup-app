@@ -1,48 +1,46 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/app-strings.dart';
 import 'package:flutter_application_1/core/app_colors.dart';
 import 'package:flutter_application_1/core/images.dart';
 import 'package:flutter_application_1/core/navigation_helper.dart';
-import 'package:flutter_application_1/view/Home_screen.dart';
-import 'package:flutter_application_1/view/Sign%20Up_screen.dart';
+import 'package:flutter_application_1/view/login_screen.dart';
 import 'package:flutter_application_1/widget/app_button.dart';
 import 'package:flutter_application_1/widget/app_textformfield.dart';
 import 'package:flutter_application_1/widget/custom_Container1.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_application_1/widget/custom_appBar.dart';
 
-import '../widget/custom_appBar.dart';
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUp_Screen extends StatefulWidget {
+  const SignUp_Screen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUp_Screen> createState() => _SignUp_ScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  void initState() {
-    super.initState();
+class _SignUp_ScreenState extends State<SignUp_Screen> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
-    // هنا بنثبت لون الـ Status Bar
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: AppColors.secondary, // خليها نفس لون الـ AppBar
-        statusBarIconBrightness: Brightness.light, // لو الـ AppBar غامق
-      ),
-    );
-  }
-
-  var emailcontroller = TextEditingController();
-  var passwordcontroller = TextEditingController();
   bool obscureText = true;
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(
-        title: App_strings.login,
+      appBar: const CustomAppbar(
+        title: App_strings.Rgeister,
         backgroundColor: AppColors.secondary,
         titleTextStyle: TextStyle(
           fontSize: 33,
@@ -52,34 +50,66 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Center(
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 80),
+                const SizedBox(height: 30),
                 AppTextformfield(
-                  controller: emailcontroller,
-                  label: App_strings.emailaddress,
+                  controller: usernameController,
+                  label: 'Username',
                   prefix: const Icon(Icons.person),
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.text,
                   width: double.infinity,
                   height: 50,
-                  onChanged: (v) {
+                  onChanged: (value) {
                     setState(() {});
                   },
                 ),
                 const SizedBox(height: 10),
                 AppTextformfield(
-                  controller: passwordcontroller,
+                  controller: emailController,
+                  label: App_strings.emailaddress,
+                  prefix: const Icon(Icons.email),
+                  keyboardType: TextInputType.text,
+                  width: double.infinity,
+                  height: 50,
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                ),
+                const SizedBox(height: 10),
+                AppTextformfield(
+                  controller: passwordController,
+                  keyboardType: TextInputType.visiblePassword,
                   obscureText: obscureText,
-                  label: App_strings.password,
+                  label: "Password",
                   prefix: const Icon(Icons.lock),
                   suffix: IconButton(
                     icon: Icon(
-                      obscureText ? Icons.visibility : Icons.visibility_off,
-                    ),
+                        obscureText ? Icons.visibility : Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                  ),
+                  width: double.infinity,
+                  height: 50,
+                ),
+                const SizedBox(height: 10),
+                AppTextformfield(
+                  controller: confirmPasswordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: obscureText,
+                  label: App_strings.confirmpassword,
+                  prefix: const Icon(Icons.lock_outline),
+                  suffix: IconButton(
+                    icon: Icon(
+                        obscureText ? Icons.visibility : Icons.visibility_off),
                     onPressed: () {
                       setState(() {
                         obscureText = !obscureText;
@@ -91,18 +121,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
                 AppButton(
+                  title: App_strings.Rgeister,
+                  width: double.infinity,
+                  height: 50,
                   onPressed: () {
                     navigateReplacement(
                       context,
-                      const HomeScreen(),
+                      const LoginScreen(),
                     );
                   },
-                  title: App_strings.login,
-                  width: double.infinity,
-                  height: 50,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: AppColors.secondary,
+                  child: const Text(
+                    App_strings.signup,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.secondary,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -121,11 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         navigateReplacement(
                           context,
-                          const SignUp_Screen(),
+                          const LoginScreen(),
                         );
                       },
                       child: const Text(
-                        App_strings.Rgeister,
+                        App_strings.signin,
                         style: TextStyle(
                           fontSize: 16,
                           color: AppColors.Primary,
@@ -133,19 +167,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
                   ],
                 ),
+                const SizedBox(height: 10),
                 const Text(
                   App_strings.or,
                   style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.Primary,
-                      fontWeight: FontWeight.bold),
+                    fontSize: 16,
+                    color: AppColors.Primary,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 CustomContainer(
                   imagePath: AppImages.googleLogo,
                   title: App_strings.continueWithGoogle,
