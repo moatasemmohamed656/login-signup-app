@@ -10,7 +10,6 @@ import 'package:flutter_application_1/view/Sign%20Up_screen.dart';
 import 'package:flutter_application_1/widget/app_button.dart';
 import 'package:flutter_application_1/widget/app_textformfield.dart';
 import 'package:flutter_application_1/widget/custom_Container1.dart';
-import 'package:flutter/services.dart';
 
 import '../widget/custom_appBar.dart';
 
@@ -22,18 +21,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  void initState() {
-    super.initState();
-
-    // هنا بنثبت لون الـ Status Bar
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: AppColors.secondary, // خليها نفس لون الـ AppBar
-        statusBarIconBrightness: Brightness.light, // لو الـ AppBar غامق
-      ),
-    );
-  }
-
   var emailcontroller = TextEditingController();
   var passwordcontroller = TextEditingController();
   bool obscureText = true;
@@ -41,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: const CustomAppbar(
         title: App_strings.login,
         backgroundColor: AppColors.secondary,
         titleTextStyle: TextStyle(

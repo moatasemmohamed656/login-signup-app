@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
+import '../app_colors.dart';
 
 final InputDecorationTheme customInputDecorationTheme = InputDecorationTheme(
   contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
