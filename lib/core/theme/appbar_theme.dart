@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
+import '../app_colors.dart';
 
 const AppBarTheme customAppBarTheme = AppBarTheme(
   backgroundColor: AppColors.secondary,

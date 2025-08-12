@@ -74,7 +74,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                   controller: emailController,
                   label: App_strings.emailaddress,
                   prefix: const Icon(Icons.email),
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.emailAddress,
                   width: double.infinity,
                   height: 50,
                   onChanged: (value) {

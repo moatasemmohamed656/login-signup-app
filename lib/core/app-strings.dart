@@ -13,4 +13,9 @@ class App_strings {
   static const String continueWithGoogle = "Continue with Google";
   static const String continueWithApple = "Continue with Apple";
   static const String or = "or";
+  static const String home = "Forgot Password?";
+  static const String productDetails = "Product Details";
+  static const String logout = "Logout";
+  static const String message = "Are you sure you want to logout?";
+  static const String logoutSuccess = "You have successfully logged out";
 }

@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
     this.width,
     this.height,
     this.child,
+    this.backgroundColor,
   });
 
   final void Function()? onPressed;
@@ -18,23 +19,27 @@ class AppButton extends StatelessWidget {
   final TextStyle? style;
   final double? width;
   final double? height;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? double.infinity,
       height: height ?? 50,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(AppColors.Primary),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all<Color>(AppColors.Primary),
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
           ),
+          onPressed: onPressed,
+          child: child ?? Text(title ?? '', style: style),
         ),
-        onPressed: onPressed,
-        child: child ?? Text(title ?? '', style: style),
       ),
     );
   }
