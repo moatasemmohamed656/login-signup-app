@@ -3,7 +3,9 @@ import 'package:flutter_application_1/core/app_colors.dart';
 import 'package:flutter_application_1/core/theme/appbar_theme.dart';
 import 'package:flutter_application_1/core/theme/elevated_button_theme.dart';
 import 'package:flutter_application_1/core/theme/input_decoration_theme.dart';
-import 'package:flutter_application_1/view/login_screen.dart';
+import 'package:flutter_application_1/presentation/features/Home/view/home_view.dart';
+import 'package:flutter_application_1/presentation/features/auth/view/login_screen.dart';
+import 'package:flutter_application_1/presentation/features/cart/view/cart_Screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,8 +59,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      themeMode: ThemeMode.system,
-      home: const LoginScreen(),
+      themeMode: ThemeMode.light,
+      home: Home_Screen(),
     );
   }
 }
