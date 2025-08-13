@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       themeMode: ThemeMode.light,
-      home: Home_Screen(),
+      home: LoginScreen(),
     );
   }
 }

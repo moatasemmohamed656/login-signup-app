@@ -1,6 +1,7 @@
 class AppImages {
-  static const String googleLogo = 'assets/Google.png';
-  static const String appleLogo = 'assets/images/apple_logo.png';
+  //  App images
+  static const String googleLogo = "assets/images/Google.png";
+  static const String appleLogo = 'assets/images/Apple logo.png';
   static const String banaar = 'assets/images/Group 1166.png';
   static const String product1 = 'assets/images/Subtract.png';
   static const String product2 = 'assets/images/Subtract(2).png';

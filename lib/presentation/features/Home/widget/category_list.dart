@@ -46,24 +46,25 @@ class _CategoryListState extends State<CategoryList> {
     }
 
     return SizedBox(
-      height: 32,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: GestureDetector(
-              onTap: () {
-                // ممكن تضيف هنا حدث عند اختيار الكاتيجوري
-              },
-              child: CategoryCard(
-                categories: categories,
-                index: index,
+      height: 60,
+      child: Center(
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          shrinkWrap: true,
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: GestureDetector(
+                onTap: () {},
+                child: CategoryCard(
+                  categories: categories,
+                  index: index,
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

@@ -12,20 +12,6 @@ class ProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(App_strings.products),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CartScreen()),
-              );
-            },
-            icon: const Icon(Icons.shopping_bag),
-          ),
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: products.isEmpty
@@ -33,8 +19,8 @@ class ProductsScreen extends StatelessWidget {
             : GridView.builder(
                 itemCount: products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // عنصرين في الصف
-                  crossAxisSpacing: 16, // مسافة أفقية بين العناصر
+                  crossAxisCount: 3, // عنصرين في الصف
+                  crossAxisSpacing: 20, // مسافة أفقية بين العناصر
                   mainAxisSpacing: 16, // مسافة رأسية بين الصفوف
                   childAspectRatio: 0.7, // تناسق عرض/طول الكرت
                 ),

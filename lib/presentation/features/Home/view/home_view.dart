@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/app-strings.dart';
 
@@ -43,7 +45,6 @@ class _Home_ScreenState extends State<Home_Screen> {
       setState(() {
         isLoading = false;
       });
-      // ممكن تضيف عرض رسالة خطأ
     }
   }
 

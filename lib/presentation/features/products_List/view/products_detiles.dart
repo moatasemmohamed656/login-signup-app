@@ -18,7 +18,7 @@ class ProductDetailsScreen extends StatelessWidget {
             const SizedBox(height: 20),
             Hero(
                 tag: product.id!,
-                child: Image.asset(product.image, width: 200)), //
+                child: Image.asset(product.image, width: 100)), //
 
             const SizedBox(height: 20),
             //

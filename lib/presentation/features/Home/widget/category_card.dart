@@ -12,20 +12,22 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomContainer(
-      width: 80,
-      height: 32,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(26),
-        color: AppColors.lightGrey,
-      ),
-      child: Center(
-        child: Text(categories[index],
-            textAlign: TextAlign.center,
+    return Center(
+      child: CustomContainer(
+        width: 80,
+        height: 32,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(26),
+          color: AppColors.lightGrey,
+        ),
+        child: Center(
+          child: Text(categories[index],
+              textAlign: TextAlign.center,
 
-            ///
-            maxLines: 1,
-            style: AppTextStyle.CategoryList_style),
+              ///
+              maxLines: 1,
+              style: AppTextStyle.CategoryList_style),
+        ),
       ),
     );
   }

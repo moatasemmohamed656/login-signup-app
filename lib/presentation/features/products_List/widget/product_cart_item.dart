@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/App_icons.dart';
@@ -22,7 +24,6 @@ class ProductItemCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // صورة المنتج
           Container(
             height: 150,
             width: double.infinity,
@@ -47,15 +48,14 @@ class ProductItemCard extends StatelessWidget {
                   ),
                 ),
 
-                // أيقونة مفضلة أو غيرها
                 Positioned(
                   right: 8,
                   top: 8,
                   child: CircleAvatar(
-                      radius: 20,
+                      radius: 15,
                       backgroundColor: AppColors.lightGrey.withOpacity(0.8),
-                      child: Icon(
-                        Icons.favorite,
+                      child: SvgPicture.asset(
+                        AppIcons.favorit,
                         color: AppColors.Primary,
                       )),
                 ),
@@ -99,7 +99,6 @@ class ProductItemCard extends StatelessWidget {
 
           const SizedBox(height: 30),
 
-          // اسم المنتج
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(

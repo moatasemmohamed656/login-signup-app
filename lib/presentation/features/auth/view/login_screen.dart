@@ -93,10 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (emailValidator.isValid && passwordValidator.isValid)
                   AppButton(
                     onPressed: () {
-                      // navigateReplacement(
-                      //   // context,
-                      //   // const HomeView(),
-                      // );
+                      navigateReplacement(
+                        context,
+                        const Home_Screen(),
+                      );
                     },
                     title: App_strings.login,
                     width: double.infinity,
